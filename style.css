@@ -14,7 +14,160 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Common Styles */
+/* Spinner */
+
+.spinner-container {
+    align-items: center;
+    background-color: #262626;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 1s;
+    width: 100%;
+    z-index: 300;
+}
+
+.display .spinner-container {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.circles {
+    animation: displayCircles 4s;
+    height: 8rem;
+    opacity: 0;
+    position: relative;
+    visibility: hidden;
+    width: 8rem;
+}
+
+@keyframes displayCircles {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    25% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.circles div::after {
+    background-color: #c29525;
+    border-radius: 50%;
+    content: "";
+    height: .7rem;
+    margin: -.4rem 0 0 -.4rem;
+    position: absolute;
+    width: .7rem;
+}
+
+.circles div:nth-child(1) {
+    animation-delay: -.036s;
+}
+
+.circles div:nth-child(2) {
+    animation-delay: -.072s;
+}
+
+.circles div:nth-child(3) {
+    animation-delay: -.108s;
+}
+
+.circles div:nth-child(4) {
+    animation-delay: -.144s;
+}
+
+.circles div:nth-child(5) {
+    animation-delay: -.18s;
+}
+
+.circles div:nth-child(6) {
+    animation-delay: -.216s;
+}
+
+.circles div:nth-child(7) {
+    animation-delay: -.252s;
+}
+
+.circles div:nth-child(8) {
+    animation-delay: -.288s;
+}
+
+.circles div:nth-child(1)::after {
+    left: 6.3rem;
+    top: 6.3rem;
+}
+
+.circles div {
+    animation: circles 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
+    transform-origin: 4rem 4rem;
+}
+
+.circles div:nth-child(2)::after {
+    left: 5.6rem;
+    top: 6.8rem;
+}
+
+.circles div:nth-child(3)::after {
+    left: 4.8rem;
+    top: 7.1rem;
+}
+
+.circles div:nth-child(4)::after {
+    left: 4rem;
+    top: 7.2rem;
+}
+
+.circles div:nth-child(5)::after {
+    left: 3.2rem;
+    top: 7.1rem;
+}
+
+.circles div:nth-child(6)::after {
+    left: 2.4rem;
+    top: 6.8rem;
+}
+
+.circles div:nth-child(7)::after {
+    left: 1.7rem;
+    top: 6.3rem;
+}
+
+.circles div:nth-child(8)::after {
+    left: 1.2rem;
+    top: 5.6rem;
+}
+
+@keyframes circles {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Container */
+
+.container {
+    display: none;
+}
+
+.display .container {
+    display: block;
+}
 
 /* Menu */
 
@@ -381,10 +534,10 @@ html {
 /* Section 3 The Team */
 
 .team {
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     padding: 0 5rem 20rem 5rem;
 }
 
@@ -396,41 +549,41 @@ html {
 }
 
 .card {
-    width: 37rem;
-    height: 45rem;
-    box-shadow: 0 1rem 4rem rgba(0,0,0,.4);
     border-radius: .5rem;
+    box-shadow: 0 1rem 4rem rgba(0,0,0,.4);
+    height: 45rem;
     position: relative;
+    width: 37rem;
 }
 
 .card-img-wrapper {
-    width: 100%;
-    height: 100%;
     background-color: #262626;
     border-radius: .5rem;
+    height: 100%;
+    width: 100%;
 }
 
 .card-img-wrapper img {
-    width: 100%;
+    border-radius: .5rem;
     height: 100%;
     object-fit: cover;
     opacity: .8;
-    border-radius: .5rem;
     transition: opacity .3s;
+    width: 100%;
 }
 
 .card:hover .card-img-wrapper img {
     opacity: .5;
 }
 
-.card-info {
-    position: absolute;
+.card-info {    
     bottom: 0;
-    padding: 2rem;
-    text-shadow: 0 .2rem .5rem rgba(0,0,0,.4);
     opacity: 0;
-    visibility: hidden;
+    padding: 2rem;
+    position: absolute;
+    text-shadow: 0 .2rem .5rem rgba(0,0,0,.4);
     transition: all .3s;
+    visibility: hidden;
 }
 
 .card:hover .card-info {
@@ -440,60 +593,60 @@ html {
 }
 
 .card-info h2 {
+    color: #eee;
     font-family: "Baloo Da 2", serif;
     font-size: 2.5rem;
-    line-height: 2.5rem;
     font-weight: 300;
-    color: #eee;
+    line-height: 2.5rem;
 }
 
 .card-info h3 {
+    color: #a52a2a;
     font-family: "Mulish", serif;
     font-size: 2rem;
     font-weight: 500;
-    color: #a52a2a;
     margin-bottom: 1rem;
 }
 
 .card-info p {
+    color: #eee;
     font-family: "Baloo Da 2", serif;
     font-size: 1.4rem;
-    line-height: 1.6rem;
     font-weight: 300;
-    color: #eee;
-    width: 80%;
+    line-height: 1.6rem;
     margin-bottom: 2rem;
+    width: 80%;
 }
 
 .card-info button {
-    width: 10rem;
-    height: 3rem;
     background-color: #c29525;
     border: none;
+    border-radius: .3rem;
+    box-shadow: 0 .1rem .8rem rgba(0,0,0,.4);
+    color: #eee;
+    height: 3rem;
     font-family: "Baloo Da 2", serif;
     font-size: 1.4rem;
     line-height: 1.5rem;
-    color: #eee;
-    border-radius: .3rem;
-    box-shadow: 0 .1rem .8rem rgba(0,0,0,.4);
+    width: 10rem;
 }
 
 /* Section 4 Contact */
 
 .contact {
-    width: 100%;
-    height: 100vh;
+    align-items: center;
     background-color: #272727;
     display: flex;
+    height: 100vh;
     justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 .contact-wrapper {
-    width: 60%;
-    height: 75rem;
-    display: flex;
     box-shadow: 0 3rem 7rem rgba(0,0,0,.5);
+    display: flex;
+    height: 75rem;
+    width: 60%;
 }
 
 .contact-left {
@@ -554,9 +707,9 @@ html {
 }
 
 .input-group label {
+    color: #4b4b4b;
     font-family: "Baloo Da 2", serif;
     font-size: 1.8rem;
-    color: #4b4b4b;
     left: 0; 
     pointer-events: none;
     position: absolute;
@@ -642,4 +795,225 @@ html {
     position: fixed;
     right: 5rem;
     width: 4.5rem;
+}
+
+/* Responsive */
+
+@media(max-width: 1500px) {
+
+    .about-us-img-wrapper {
+        grid-row: 3 / -1;
+    }
+
+    .card {
+        width: 34rem;
+    }
+
+    .contact-wrapper {
+        height: 65rem;
+        width: 80%;
+    }
+
+    .footer-content {
+        width: 80%;
+    }
+
+}
+
+@media(max-width: 1400px) {
+
+    .banner h1 {
+        font-size: 6rem;
+        line-height: 7rem;
+    }
+
+    .banner p {
+        font-size: 3rem;
+    }
+
+    .banner button {
+        font-size: 1.6rem;
+        height: 5rem;
+        width: 20rem;
+    }
+
+    .menu-lin {
+        font-size: 3rem;
+    }
+
+    .service:nth-child(1) {
+        grid-column: 3 / 7;
+    }
+    
+    .service:nth-child(2) {
+        grid-column: 2 / 6;
+    }
+    
+    .service:nth-child(3) {
+        grid-column: 3 / 7;
+    }
+    
+    .service:nth-child(4) {
+        grid-column: 11 / 15;
+    }
+    
+    .service:nth-child(5) {
+        grid-column: 12 / 16;
+    }
+    
+    .service:nth-child(6) {
+        grid-column: 11 / 15;
+    }
+
+}
+
+@media(max-width: 1300px) {
+
+    .team {
+        padding-bottom: 5rem;
+    }
+
+    .cards-wrapper {
+        align-items: center;
+        flex-direction: column;
+        margin-top: 4rem;
+    }
+
+    .card {
+        margin-bottom: 8rem;
+    }
+
+    .contact-wrapper {
+        height: 55rem;
+        width: 90%;
+    }
+
+    .contact-heading {
+        margin-bottom: 2rem;
+    }
+
+    .field {
+        margin: 2rem 0;
+    }
+
+}
+
+@media(max-width: 1000px) {
+
+    .banner h1 {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+
+    .banner p {
+        font-size: 2.5rem;
+    }
+
+    .banner button {
+        font-size: 1.5rem;
+        height: 4rem;
+        width: 18rem;
+    }
+
+    .services {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service {
+        margin-bottom: 6rem;
+        width: 40rem;
+    }
+
+    .about-us-img-wrapper {
+        width: 40rem;
+    }
+
+    .about-us-img-wrapper img {
+        width: 100%;
+    }
+
+    .contact-left {
+        width: 0;
+    }
+
+    .contact-right {
+        width: 100%;
+    }
+
+    .field {
+        width: 55rem;
+    }
+
+    .input-group textarea {
+        max-width: 55rem;
+    }
+
+    .submit-btn {
+        width: 55rem;
+    }
+
+    .footer-content {
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        width: 50%;
+    }
+
+    .copyright {
+        order: 1;
+        margin-top: 3rem;
+    }
+
+}
+
+@media(max-width: 700px) {
+
+    .banner h1 {
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+
+    .banner p {
+        font-size: 2rem;
+    }
+
+    .field {
+        width: 35rem;
+    }
+    
+    .input-group textarea {
+        max-width: 35rem;
+    }
+
+    .submit-btn {
+        width: 35rem;
+    }
+
+}
+
+@media(max-width: 500px) {
+
+    html {
+        font-size: 45%;
+    }
+
+    .sidebar {
+        right: -100%;
+        width: 100%;
+    }
+
+    .change .hamburder-menu {
+        right: 38rem;
+    }
+
+    .service {
+        width: 30rem;
+    }
+
+    .footer {
+        height: 18rem;
+    }
+
 }
